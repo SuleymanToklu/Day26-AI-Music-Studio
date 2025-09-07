@@ -9,13 +9,51 @@ app_file: app.py
 pinned: false
 ---
 
-# 🎶 Day 26: AI Music Studio (Generator & Analyst)
+Gün 26: AI Music Studio - Demucs ile Enstrüman Ayırma 🎶
 
-This is the twenty-sixth project of my #30DaysOfAI challenge, following a "2 Models, 1 Package" strategy. This project combines a **Text-to-Music** model and a **Music Source Separation** model into a single AI Music Studio application.
+Bu proje, bir ses dosyasını alıp demucs kütüphanesini kullanarak onu temel enstrüman katmanlarına (vokal, davul, bas ve diğerleri) ayıran basit ve güçlü bir Gradio web uygulamasıdır.
 
-### ✨ "2 Models, 1 Package" Concept
-* **Model 1 (The Composer - Text-to-Music):** Uses `facebook/musicgen-small` to generate novel music clips from a user's text prompt.
-* **Model 2 (The Producer - Source Separation):** Uses `facebook/demucs` to take an audio track and separate it into its core instrumental stems (drums, bass, vocals, etc.).
+Uygulama, transformers pipeline'ı yerine doğrudan demucs komut satırı aracını çağırarak daha stabil ve güvenilir bir ayırma işlemi sunar.
+🚀 Canlı Demo
 
-### 💻 Tech Stack
--   Python, Gradio, PyTorch, Hugging Face (Transformers)
+Uygulamayı denemek için aşağıdaki Hugging Face Spaces linkini ziyaret edebilirsiniz:
+
+https://huggingface.co/spaces/tiheli/Day-26-AI-Music-Studio
+✨ Özellikler
+
+    🎼 Stabil Enstrüman Ayırma: Yüklediğiniz bir ses dosyasını vokal, davul, bas ve diğer enstrümanlar olmak üzere dört ana katmana ayırır.
+
+    Doğrudan Demucs Entegrasyonu: Arka planda subprocess kullanarak demucs kütüphanesini çalıştırır ve en iyi sonuçları hedefler.
+
+    Basit Arayüz: Tek yapmanız gereken ses dosyanızı yüklemek ve sonuçları dinlemek!
+
+🛠️ Kullanılan Teknolojiler
+
+    Framework: Gradio
+
+    Ayırma Kütüphanesi: Demucs
+
+    Ana Kütüphaneler: subprocess, tempfile (Geçici dosya yönetimi için)
+
+💻 Yerel Ortamda Çalıştırma
+
+Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz.
+
+    Repoyu Klonlayın:
+
+    git clone [https://github.com/SuleymanToklu/Day26-AI-Music-Studio.git](https://github.com/SuleymanToklu/Day26-AI-Music-Studio.git)
+    cd Day26-AI-Music-Studio
+
+    Gerekli Paketleri Yükleyin:
+    demucs kütüphanesinin kendisi ana bağımlılıktır.
+
+    pip install -r requirements.txt
+
+    Not: requirements.txt dosyanızın gradio ve demucs paketlerini içerdiğinden emin olun. Demucs'un kurulumu için resmi GitHub sayfasını ziyaret edebilirsiniz.
+
+    Uygulamayı Başlatın:
+
+    python app.py
+
+    Tarayıcıda Açın:
+    Terminalde belirtilen yerel adresi (genellikle http://127.0.0.1:7860) tarayıcınızda açın.
